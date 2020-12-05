@@ -1,0 +1,59 @@
+server:
+  port: 8183
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+
+spring:
+  application:
+    name: users-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  datasource:
+    url: jdbc:mariadb://namiqui-1.cah7xwlhaoei.us-east-2.rds.amazonaws.com:3306/namiquicore
+    username: admin
+    password: ABCdef123.
+    hiraki:
+      minIdle: 10
+      idle-timeout: 10000
+      maximumPoolSize: 30
+    driver-class-name: org.mariadb.jdbc.Driver
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://ec2-3-15-178-211.us-east-2.compute.amazonaws.com:8761/eureka/
+    instance: 
+      hostname: http://ec2-3-15-178-211.us-east-2.compute.amazonaws.com/
+namiqui:
+  smtp:
+    host: smtp.sendgrid.net
+    auth: true
+    ssl: true
+    account: apikey
+    pwd: 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
+    port: 465
+    from: dav_vd@hotmail.com
+configuration:
+  configurations:
+    default:  CONF_ALERT_ACTION_CALL911,CONF_ALERT_ACTION_ALERT_USERS
+#namiqui:
+#  smtp:
+#    host: mail.namiqui.com
+#    auth: true
+#    ssl: true
+#    account: recuperacion@namiqui.com
+#    pwd: Septiembre292029
+#    port: 587
+#    from: recuperacion@namiqui.com
+
